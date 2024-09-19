@@ -19,16 +19,14 @@ if size == "S":
     bill = small_pizaa
     if add_pepperoni == "Y":
         bill += pepperoni_small
-    print(f"Your final bill is ${bill}.")
 elif size == "M":
     bill = medium_pizza
     if add_pepperoni == "Y":
         bill += pepperoni_med_large
-    print(f"Your final bill is ${bill}.")
 elif size == "L":
     bill = large_pizza
     if add_pepperoni == "Y":
         bill += pepperoni_med_large
-    print(f"Your final bill is ${bill}.")
 else:
     print("Your final bill is $0.")
+print(f"Your final bill is: ${bill}.")
