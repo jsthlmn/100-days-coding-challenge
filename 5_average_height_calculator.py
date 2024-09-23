@@ -18,9 +18,17 @@ print(f"The average of students height is: {avg_height}")
 # ----------OR------------
 
 
-# length_sutend  = len(students_height)
+# length_studnet  = len(students_height)
+# print(f"There are total {length_studnet} students to be calculated")
+
+
+# for k in range(0, len(students_height)):
+#     students_height[k] = int(students_height[k])
+
 # sum_student = sum(students_height)
-# average_height = sum_student / length_sutend
-# print(f"The average of students height is: {aerage_height}")
+# print(f"The total of that 7 student heights is {sum_student}")
+
+# average_height = sum_student / length_studnet
+# print(f"The average of students height is: {average_height}")
 
 # print(students_height)
