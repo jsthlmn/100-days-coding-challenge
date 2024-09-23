@@ -25,3 +25,11 @@ print(highest_score)
 #     (student_scores[ind], student_scores[min_index]) = (student_scores[min_index], student_scores[ind])
 # print(student_scores)
 # print(student_scores[-1])
+
+
+# -----------OR----------
+# The easiest way
+
+# student_scores.sort()
+# print(student_scores)
+# print(student_scores[-1])
