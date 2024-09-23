@@ -33,3 +33,7 @@ print(highest_score)
 # student_scores.sort()
 # print(student_scores)
 # print(student_scores[-1])
+
+# ----------OR----------
+# The very easiest way ever
+# print(max(student_scores))
