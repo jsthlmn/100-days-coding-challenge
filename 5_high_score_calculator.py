@@ -23,6 +23,7 @@ print(highest_score)
 #             min_index = j
 #     # swapping the elements to sort the array
 #     (student_scores[ind], student_scores[min_index]) = (student_scores[min_index], student_scores[ind])
+#     # print(student_scores)
 # print(student_scores)
 # print(student_scores[-1])
 
