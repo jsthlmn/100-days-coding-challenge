@@ -6,6 +6,10 @@ import random
 # print(total)
 
 
-pw_letter = ["a", "b", "c", "R", "e"]
-random.shuffle(pw_letter)
-print(pw_letter)
+# pw_letter = ["a", "b", "c", "R", "e"]
+# random.shuffle(pw_letter)
+# print(pw_letter)
+
+inpt_letters = int(input("How many letters would you like in your password? "))
+for i in range(1, inpt_letters +1):
+    print(i)
