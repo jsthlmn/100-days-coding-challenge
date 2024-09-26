@@ -25,25 +25,50 @@ for _ in range(length_of_word):
     blank_letter.append("_")
 print(f"Here are the word that you should guess: \n{blank_letter}")
 
-# Input a letter
-letter_guessed = input("Gues a letter: ").lower()
+# Condition to guess if there are still blank part
+while "_" in blank_letter:
+    # Input a letter
+    letter_guessed = input("Gues a letter: ").lower()
+    # Replace the blank with letter_guessed or "_"
+    for position in range(length_of_word):
+        letter = chosen_word[position]
+        if letter_guessed == letter:
+            blank_letter[position] = letter
+    print(blank_letter)
 
-# Replace the blank with letter_guessed or "_"
-for position in range(length_of_word):
-    letter = chosen_word[position]
-    if letter_guessed == letter:
-        blank_letter[position] = letter
-    else:
-        blank_letter[position] = "_"
-print(blank_letter)
+    # -------OR--------
+    # replace_blank_letter = []
+    # for letter in chosen_word:
+    #     if letter == letter_guessed:
+    #         replace_blank_letter += letter_guessed
+    #     else:
+    #         replace_blank_letter += "_"
+    # print(replace_blank_letter)
+print("Great, you guessed all the letter")
 
-# -------OR--------
-# replace_blank_letter = []
-# for letter in chosen_word:
-#     if letter == letter_guessed:
-#         replace_blank_letter += letter_guessed
-#     else:
-#         replace_blank_letter += "_"
-# print(replace_blank_letter)
 
+# -------OR---------
+# end_of_game = False
+# while not end_of_game:
+#     # Input a letter
+#     letter_guessed = input("Gues a letter: ").lower()
+#     # Replace the blank with letter_guessed or "_"
+#     for position in range(length_of_word):
+#         letter = chosen_word[position]
+#         if letter_guessed == letter:
+#             blank_letter[position] = letter
+#     print(blank_letter)
+
+#     # -------OR--------
+#     # replace_blank_letter = []
+#     # for letter in chosen_word:
+#     #     if letter == letter_guessed:
+#     #         replace_blank_letter += letter_guessed
+#     #     else:
+#     #         replace_blank_letter += "_"
+#     # print(replace_blank_letter)
+
+#     if "_" not in blank_letter:
+#         end_of_game = True
+#         print("Great, you guessed all the letter")
 
