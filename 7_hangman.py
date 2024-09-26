@@ -19,19 +19,31 @@ chosen_word = word_list[random_choice]
 print(chosen_word)
 
 # Generate list that contain "-" based on the choosen word
+length_of_word = len(chosen_word)
 blank_letter = []
-for bl in chosen_word:
+for _ in range(length_of_word):
     blank_letter.append("_")
 print(f"Here are the word that you should guess: \n{blank_letter}")
 
 # Input a letter
 letter_guessed = input("Gues a letter: ").lower()
-replace_blank_letter = []
-for letter in chosen_word:
+
+# Replace the blank with letter_guessed or "_"
+for position in range(length_of_word):
+    letter = chosen_word[position]
     if letter_guessed == letter:
-        replace_blank_letter += letter
+        blank_letter[position] = letter
     else:
-        replace_blank_letter += "_"
-print(replace_blank_letter)
+        blank_letter[position] = "_"
+print(blank_letter)
+
+# -------OR--------
+# replace_blank_letter = []
+# for letter in chosen_word:
+#     if letter == letter_guessed:
+#         replace_blank_letter += letter_guessed
+#     else:
+#         replace_blank_letter += "_"
+# print(replace_blank_letter)
 
 
