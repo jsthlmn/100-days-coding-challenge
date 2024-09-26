@@ -2,7 +2,7 @@
 import random
 
 # Welcoming to the game
-print("Welcom to Hangman Game")
+print("**Welcome to Hangman Game**")
 
 # Set a variable
 word_list = ["lion", "elephant", "zebra", "monkey", "ant"]
@@ -18,10 +18,20 @@ chosen_word = word_list[random_choice]
 
 print(chosen_word)
 
+# Generate list that contain "-" based on the choosen word
+blank_letter = []
+for bl in chosen_word:
+    blank_letter.append("_")
+print(f"Here are the word that you should guess: \n{blank_letter}")
+
 # Input a letter
-letter_guessed = input("Gues a letter: ")
-for cw in chosen_word:
-    if letter_guessed == cw:
-        print("Right")
+letter_guessed = input("Gues a letter: ").lower()
+replace_blank_letter = []
+for letter in chosen_word:
+    if letter_guessed == letter:
+        replace_blank_letter += letter
     else:
-        print("Wrong")
+        replace_blank_letter += "_"
+print(replace_blank_letter)
+
+
