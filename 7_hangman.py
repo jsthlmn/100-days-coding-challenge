@@ -1,6 +1,67 @@
 # import a necessary modul
 import random
 
+stages =['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
+length_of_stages = len(stages)
+lives = 6
+
 # Welcoming to the game
 print("**Welcome to Hangman Game**")
 
@@ -25,8 +86,9 @@ for _ in range(length_of_word):
     blank_letter.append("_")
 print(f"Here are the word that you should guess: \n{blank_letter}")
 
-# Condition to guess if there are still blank part
-while "_" in blank_letter:
+
+end_of_game = False
+while end_of_game == False:
     # Input a letter
     letter_guessed = input("Gues a letter: ").lower()
     # Replace the blank with letter_guessed or "_"
@@ -36,15 +98,31 @@ while "_" in blank_letter:
             blank_letter[position] = letter
     print(blank_letter)
 
-    # -------OR--------
-    # replace_blank_letter = []
-    # for letter in chosen_word:
-    #     if letter == letter_guessed:
-    #         replace_blank_letter += letter_guessed
-    #     else:
-    #         replace_blank_letter += "_"
-    # print(replace_blank_letter)
-print("Great, you guessed all the letter")
+    # Condition to guess if there are still blank part, if no quit the while loop and win
+    if "_" not in blank_letter:
+        end_of_game = True
+        print("Great, you guessed all the letter!")
+
+    # Reducing lives in every wrong letter guess, and print the hangman in every wrong letter guess
+    if letter_guessed not in chosen_word:
+        lives -= 1
+        print(f"Your lives remaining {lives}")
+        print(stages[lives])
+
+        # Check the live of player, if player lives remain zero then quit the while loop and lose
+        if lives == 0:
+            end_of_game = True
+            print("You ran out your live, Game Over!")
+
+#     # -------OR--------
+#     # replace_blank_letter = []
+#     # for letter in chosen_word:
+#     #     if letter == letter_guessed:
+#     #         replace_blank_letter += letter_guessed
+#     #     else:
+#     #         replace_blank_letter += "_"
+#     # print(replace_blank_letter)
+# print("Great, you guessed all the letter")
 
 
 # -------OR---------
@@ -68,7 +146,19 @@ print("Great, you guessed all the letter")
 #     #         replace_blank_letter += "_"
 #     # print(replace_blank_letter)
 
-#     if "_" not in blank_letter:
-#         end_of_game = True
-#         print("Great, you guessed all the letter")
+    # Condition to guess if there are still blank part, if no quit the while loop and win
+    # if "_" not in blank_letter:
+    #     end_of_game = True
+    #     print("Great, you guessed all the letter")
+
+    # Reducing lives in every wrong letter guess, and print the hangman in every wrong letter guess
+    # if letter_guessed not in chosen_word:
+    #     lives -= 1
+    #     print(f"Your lives remaining {lives}")
+    #     print(stages[lives])
+
+    # Check the live of player, if player lives remain zero then quit the while loop and lose
+    #     if lives == 0:
+    #         end_of_game = True
+    #         print("You ran out your live, Game Over!")
 
