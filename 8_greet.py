@@ -1,4 +1,6 @@
-def greet (name):
-    print(f"Hello {name}")
+def greet (name, location):
+    print(f"Hello {name}, what is it like in {location}?")
 
-greet("Bob")
+names = "John"
+locations = "New York"
+greet(names, locations)
