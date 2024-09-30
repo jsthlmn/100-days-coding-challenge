@@ -12,8 +12,6 @@ def encrypt(messages_input, shifts_amount):
         encrypted += new_letter
     print(f"The encrypted messages is: {encrypted}")
 
-encrypt(messages_input=message, shifts_amount=shift)
-
 # ---------OR----------
 
 # def encrypt(messages_input, shifts_amount):
@@ -32,10 +30,27 @@ encrypt(messages_input=message, shifts_amount=shift)
 #     for j in encrypted:
 #         encrypted_string += j
 #     print(f"The encrypted messages is: {encrypted_string}")
+# encrypt(messages_input=message, shifts_amount=shift)
 
 #     # ---------OR----------
 #     # Using the join method
 #     # encrypted = "".join(encrypted)
 #     # print(encrypted)
 
-# encrypt(messages_input=message, shifts_amount=shift)
+
+def decrypt(messages_input, shifts_amount):
+    decrypted = ""
+    for letter in messages_input:
+        position = alphabet.index(letter)
+        new_position = position - shifts_amount
+        new_letter = alphabet[new_position]
+        decrypted += new_letter
+    print(f"The decrypted messages is: {decrypted}")
+
+
+if options == "encode":
+    encrypt(messages_input=message, shifts_amount=shift)
+elif options == "decode":
+    decrypt(messages_input=message, shifts_amount=shift)
+else:
+    print("Invalid option. Please enter 'encode' or 'decode'")
