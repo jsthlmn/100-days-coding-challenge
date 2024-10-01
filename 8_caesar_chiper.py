@@ -1,3 +1,6 @@
+from caesar_art import logo
+
+print(logo)
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 options = input("Type 'encode' to encrypt, type 'decode' to decrypt! :")
 message = input("Type your message: ").lower()
@@ -6,13 +9,18 @@ shift = int(input("Enter the shift number: "))
 # def caesar(text_input, shift_amount, user_option):
 #     final_text = ""
 #     for letter in text_input:
-#         position = alphabet.index(letter)
-#         if user_option == "encode":
-#             new_position = position + shift_amount
-#         elif user_option == "decode":
-#             new_position = position - shift_amount
-#         new_letter = alphabet[new_position]
-#         final_text += new_letter
+#         if letter not in alphabet:
+#             final_text += letter
+#         else:
+#             position = alphabet.index(letter)
+#             if user_option == "encode":
+#                 new_position = position + shift_amount
+#             elif user_option == "decode":
+#                 new_position = position - shift_amount
+#             else:
+#                 print("Invalid option. Please type 'encode' or 'decode'")
+#             new_letter = alphabet[new_position]
+#             final_text += new_letter
 #     print(f"The {user_option}d message is: {final_text}")
 
 # caesar(text_input=message, shift_amount=shift, user_option=options)
@@ -23,10 +31,26 @@ def caesar(text_input, shift_amount, user_option):
     if user_option == "decode":
         shift_amount *= -1
     for letter in text_input:
-        position = alphabet.index(letter)
-        new_position = position + shift_amount
-        final_text += alphabet[new_position]
-        print(shift_amount)
+        if letter not in alphabet:
+            final_text += letter
+        else:
+            position = alphabet.index(letter)
+            new_position = position + shift_amount
+            final_text += alphabet[new_position]
     print(f"The {user_option}d message is: {final_text}")
 
-caesar(text_input=message, shift_amount=shift, user_option=options)
+end_of_game = False
+while not end_of_game:
+    caesar(text_input=message, shift_amount=shift, user_option=options)
+    repeat_game = input("Type 'yes' if you want to go again, otherwise type 'no'. ").lower()
+    if repeat_game == "yes":
+        options = input("Type 'encode' to encrypt, type 'decode' to decrypt! :")
+        message = input("Type your message: ").lower()
+        shift = int(input("Enter the shift number: "))
+    elif repeat_game == "no":
+        end_of_game = True
+        print("Goodbye")
+    else:
+        print("Please type 'yes' or 'no'.")
+
+    
