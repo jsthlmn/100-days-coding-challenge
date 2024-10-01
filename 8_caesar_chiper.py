@@ -3,47 +3,30 @@ options = input("Type 'encode' to encrypt, type 'decode' to decrypt! :")
 message = input("Type your message: ").lower()
 shift = int(input("Enter the shift number: "))
 
+# def caesar(text_input, shift_amount, user_option):
+#     final_text = ""
+#     for letter in text_input:
+#         position = alphabet.index(letter)
+#         if user_option == "encode":
+#             new_position = position + shift_amount
+#         elif user_option == "decode":
+#             new_position = position - shift_amount
+#         new_letter = alphabet[new_position]
+#         final_text += new_letter
+#     print(f"The {user_option}d message is: {final_text}")
+
+# caesar(text_input=message, shift_amount=shift, user_option=options)
+
+# ------------OR-----------------
 def caesar(text_input, shift_amount, user_option):
-    if user_option == "encode":
-        encrypted = ""
-        for letter in text_input:
-            position = alphabet.index(letter)
-            new_position = position + shift_amount
-            new_letter = alphabet[new_position]
-            encrypted += new_letter
-        print(f"The encrypted messages is: {encrypted}")
-
-        # ---------OR----------
-        # Create an empty list called 'encrypted'
-        # encrypted = []
-
-        # # For each letter in the message that user inputs
-        # for letter in text_input:
-        #     # Find the position of the letter in the alphabet
-        #     positions = alphabet.index(letter)
-        #     # Shift the letter and add it to the 'encrypted' list
-        #     encrypted += alphabet[positions + shift_amount]
-
-        # # Convert the 'encrypted' list into a string
-        # encrypted_string = ""
-        # for j in encrypted:
-        #     encrypted_string += j
-        # print(f"The encrypted messages is: {encrypted_string}")
-
-        # ---------OR----------
-        # Using the join method
-        # encrypted = "".join(encrypted)
-        # print(encrypted)
-        
-    elif user_option == "decode":
-        decrypted = ""
-        for letter in text_input:
-            position = alphabet.index(letter)
-            new_position = position - shift_amount
-            new_letter = alphabet[new_position]
-            decrypted += new_letter
-        print(f"The decrypted messages is: {decrypted}")
-    else:
-        print("Invalid option, please choose 'encode' or 'decode'! ")
+    final_text = ""
+    if user_option == "decode":
+        shift_amount *= -1
+    for letter in text_input:
+        position = alphabet.index(letter)
+        new_position = position + shift_amount
+        final_text += alphabet[new_position]
+        print(shift_amount)
+    print(f"The {user_option}d message is: {final_text}")
 
 caesar(text_input=message, shift_amount=shift, user_option=options)
