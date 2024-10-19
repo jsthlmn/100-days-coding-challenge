@@ -6,7 +6,7 @@ import random
 # print(total)
 
 
-pw_letter = ["a", "b", "c", "R", "e"]
+# pw_letter = ["a", "b", "c", "R", "e"]
 # random.shuffle(pw_letter)
 # print(pw_letter)
 
