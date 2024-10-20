@@ -1,4 +1,8 @@
 def leap_year(year):
+    """
+    Function to check the year is leap year or not leap year
+    """
+
     if year % 4 == 0:
         if year % 100 == 0:
             if year % 400 == 0:
@@ -11,6 +15,9 @@ def leap_year(year):
         return False
 
 def days_in_month(yr, mnth):
+    """
+    Function to check the number of days in a month
+    """
     month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
     if month > 12 and month < 1:
