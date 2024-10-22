@@ -1,4 +1,4 @@
-# from calculator_art import logo
+from calculator_art import logo
 
 def add(number1, number2):
     return number1 + number2
@@ -20,6 +20,8 @@ operations = {
 }
 
 def calculator():
+    print(logo)
+    
     first_number = int(input("Insert the first number you want to calc: "))
 
     for i in operations:
