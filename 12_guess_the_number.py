@@ -21,12 +21,22 @@ else:
 
 
 is_finished = False
+# attempts_left = attempts
 
 while is_finished == False:
     user_guess = int(input("Make a guess: "))
     if user_guess == guess_number:
         print("Got it, you guessed the number!")
+        is_finished = True
     elif user_guess > guess_number:
         print("Too high, guess again")
+        attempts -= 1
+        print(f"You have {attempts} attempts remaining to guess the number")
     elif user_guess < guess_number:
         print("Too low, guess again")
+        attempts -= 1
+        print(f"You have {attempts} attempts remaining to guess the number")
+    
+    if attempts == 0:
+        print("You ran out of attempts, you lose.")
+        is_finished = True
