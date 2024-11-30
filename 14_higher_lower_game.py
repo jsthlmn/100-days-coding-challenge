@@ -3,42 +3,47 @@ import random
 from higher_lower_art import logo, vs
 from higher_lower_data import data
 
-# Declare variable
-compare_A = random.choice(data)
-compare_B = random.choice(data)
+def format_data(compare):
+    """Format the data into printable format"""
+    name = compare['name']
+    description = compare['description']
+    country = compare['country']
+    return f"{name} a {description}, from {country}"
 
-def game_compare():
-    if compare_A['follower_count'] > compare_B['follower_count']:
-        return 'A'
+def game_compare(guess, a_followers, b_followers):
+    if a_followers > b_followers:
+        return guess == 'a'
     else:
-        return 'B'
+        return guess == 'b'
 
-def guess_answer(guess, answer, score):
-    if guess == answer:
-        print(logo)
-        print(f"You're right, Current score: {score + 1}")
-    else:
-        print(logo)
-        print(f"Sorry, that's wrong. Final score: {score}")
-
-def game():
-    game_over = False
-    while not game_over:
-        print(f"Compare A: {compare_A['name']}, {compare_A['description']}, from {compare_A['country']}")
-        print(vs)
-        print(f"Againts B: {compare_B['name']}, {compare_B['description']}, from {compare_B['country']}")
-        guess = input("Who has more followers? Type 'A' or 'B': ")
-        
-        answer = game_compare()
-        score = 0
-        
-        if guess == answer:
-            print(logo)
-            print(f"You're right, Current score: {score + 1}")
-        else:
-            print(logo)
-            print(f"Sorry, that's wrong. Final score: {score}")
-            game_over = True
-
+# Print logo
 print(logo)
-game()
+score = 0
+game_continue = True
+
+while game_continue:
+    # Declare variable and generate a random data
+    compare_A = random.choice(data)
+    compare_B = random.choice(data)
+    if compare_A == compare_B:
+        compare_B = random.choice(data)
+
+    # Format the data into printable format
+    print(f"Compare A: {format_data(compare_A)}")
+    print(vs)
+    print(f"Againts B: {format_data(compare_B)}")
+
+    # Ask user for a guess
+    guess = input("Who has more followers? Type 'A' or 'B': ").lower()
+
+    # Check if the answer is correct
+    is_correct = game_compare(guess, compare_A['follower_count'], compare_B['follower_count'])
+
+    # Give user a feedback
+    if is_correct:
+        score += 1
+        print(f"You're right, Current score: {score}")
+    else:
+        print(f"Sorry, that's wrong. Final score: {score}")
+        game_continue = False
+
