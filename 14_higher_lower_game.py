@@ -20,12 +20,13 @@ def game_compare(guess, a_followers, b_followers):
 print(logo)
 score = 0
 game_continue = True
+compare_B = random.choice(data)
 
 while game_continue:
     # Declare variable and generate a random data
-    compare_A = random.choice(data)
+    compare_A = compare_B
     compare_B = random.choice(data)
-    if compare_A == compare_B:
+    while compare_A == compare_B:
         compare_B = random.choice(data)
 
     # Format the data into printable format
