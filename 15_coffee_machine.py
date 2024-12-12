@@ -32,19 +32,24 @@ resources = {
 
 current_money = 0
 
-# TODO: 1. Prompt user by asking "What would you like? (espresso/latte/cappuccino):"
+
 
 machine_off = False
 while not machine_off :
     # Ask the user for the options
+    # TODO: 1. Prompt user by asking "What would you like? (espresso/latte/cappuccino):"
     user_input = input("What would you like? (espresso/latte/cappuccino): ")
-    if user_input == 'off':
+    # TODO: 2. Turn off the coffe machine by entering "off" to the prompt.
+    if user_input == "off":
         machine_off = True
-    elif user_input == 'report':
+    elif user_input == "report":
+        # TODO: 3. Print report
         print(f"Water: {resources['water']}\nMilk: {resources['milk']}\nCoffee: {resources['coffee']}\nMoney: {current_money}")
+    else:
+        drink = MENU[user_input]
+        print(drink)
 
-# TODO: 2. Turn off the coffe machine by entering "off" to the prompt.
-# TODO: 3. Print report
+
 # TODO: 4. Check resources sufficient?
 # TODO: 5. Process coins
 # TODO: 6. Check transaction successful?
