@@ -30,9 +30,12 @@ resources = {
     "coffee": 100,
 }
 
+def is_resource_sufficient(order_ingredients):
+    for item in order_ingredients:
+        if order_ingredients[item] >= resources[item]:
+            print("Sorry there is not enough water")
+
 current_money = 0
-
-
 
 machine_off = False
 while not machine_off :
@@ -47,15 +50,10 @@ while not machine_off :
         print(f"Water: {resources['water']}\nMilk: {resources['milk']}\nCoffee: {resources['coffee']}\nMoney: {current_money}")
     else:
         drink = MENU[user_input]
-        print(drink)
+        is_resource_sufficient(drink["ingredients"])
 
 
 # TODO: 4. Check resources sufficient?
 # TODO: 5. Process coins
 # TODO: 6. Check transaction successful?
 # TODO: 7. Make Coffee.
-
-
-
-
-
