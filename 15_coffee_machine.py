@@ -54,6 +54,7 @@ def process_coins():
     return total
 
 
+# TODO: 6. Check transaction successful?
 def is_transaction_successful(money_received, drink_cost):
     """Return True when the payment is successful, of False if money is insufficient."""
     if money_received >= drink_cost:
@@ -67,6 +68,7 @@ def is_transaction_successful(money_received, drink_cost):
         return False
 
 
+# TODO: 7. Make Coffee.
 def make_coffee(drink_name, order_ingredients):
     """Deduct the required ingredients from the resources."""
     for item in order_ingredients:
@@ -96,6 +98,3 @@ while not machine_off:
             payment = process_coins()
             if is_transaction_successful(payment, drink["cost"]):
                 make_coffee(user_input, drink["ingredients"])
-
-# TODO: 6. Check transaction successful?
-# TODO: 7. Make Coffee.
